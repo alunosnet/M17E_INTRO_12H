@@ -11,6 +11,9 @@ namespace M17E_INTRO_12H
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //verificar se existe o parâmetro erro na url
+            if (Request.QueryString["erro"] != null)
+                Response.Write("<script>alert('erro');</script>");
             if (!IsPostBack)
             {
                 // Só para a primeira vez que a página é pedida
@@ -35,6 +38,18 @@ namespace M17E_INTRO_12H
             int resultado = x + y;
             string url = "resultado.aspx?resultado=" + resultado.ToString();
             Response.Redirect(url);
+        }
+
+        protected void bt_cookie_Click(object sender, EventArgs e)
+        {
+            //Criar um cookie
+            HttpCookie novo = new HttpCookie("12_H");
+            //definir o prazo de validade
+            novo.Expires = DateTime.Now.AddDays(30);
+            //definir valor
+            novo.Value = "Teste";
+            //enviar para o browser
+            Response.Cookies.Add(novo);
         }
     }
 }

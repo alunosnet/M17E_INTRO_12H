@@ -67,11 +67,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="compra.aspx" />
+    <Content Include="cookies.aspx" />
     <Content Include="index.aspx" />
     <Content Include="resultado.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="compra.aspx.cs">
+      <DependentUpon>compra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="compra.aspx.designer.cs">
+      <DependentUpon>compra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cookies.aspx.cs">
+      <DependentUpon>cookies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cookies.aspx.designer.cs">
+      <DependentUpon>cookies.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -96,6 +112,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="imagens\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

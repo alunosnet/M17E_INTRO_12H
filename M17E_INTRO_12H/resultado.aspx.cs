@@ -28,7 +28,8 @@ namespace M17E_INTRO_12H
                 //Response.Write("<script>alert('Não existe o parâmetro resultado!');</script>");
                 //redirecionar para a página index.aspx
                 //mostrar uma mensagem de erro na index.aspx
-                //TODO: Cookies
+                string url = "index.aspx?erro=1";
+                Response.Redirect(url);
             }
         }
     }

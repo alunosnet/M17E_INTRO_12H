@@ -21,6 +21,8 @@
             <br />
             <asp:Button ID="bt_redirect" runat="server" 
                     Text="Página resultado" OnClick="bt_redirect_Click" />
+            <br />
+            <asp:Button ID="bt_cookie" runat="server" Text="Criar cookie" OnClick="bt_cookie_Click" />
         </div>
     </form>
 </body>
