@@ -9,9 +9,11 @@ namespace M17E_INTRO_12H
 {
     public partial class index : System.Web.UI.Page
     {
+        // SEMPRE Executado
         protected void Page_Load(object sender, EventArgs e)
         {
             //verificar se existe o parâmetro erro na url
+            //http://localhost:56677/index.aspx?erro=qq
             if (Request.QueryString["erro"] != null)
                 Response.Write("<script>alert('erro');</script>");
             if (!IsPostBack)
