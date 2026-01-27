@@ -94,6 +94,7 @@ namespace M17E_INTRO_12H
                 string ficheiro = Server.MapPath("~/Imagens");
                 ficheiro += "/" + foto.FileName;
                 foto.SaveAs(ficheiro);
+                lb_erro.Text = "Compra registada com sucesso";
             }
             catch (Exception ex)
             {
