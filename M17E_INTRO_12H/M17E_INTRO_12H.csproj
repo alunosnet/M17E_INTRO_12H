@@ -77,9 +77,12 @@
     <Content Include="Login.aspx" />
     <Content Include="public\css\estilos.css" />
     <Content Include="resultado.aspx" />
+    <Content Include="script_bd.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\BaseDados.cs" />
+    <Compile Include="Classes\Utilizadores.cs" />
     <Compile Include="compra.aspx.cs">
       <DependentUpon>compra.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
