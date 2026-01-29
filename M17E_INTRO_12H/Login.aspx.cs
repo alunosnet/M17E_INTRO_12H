@@ -25,9 +25,29 @@ namespace M17E_INTRO_12H
             }
             //consulta à tabela de utilizadores
             Utilizadores novo = new Utilizadores();
-            //TODO: CONTINUAR AQUI!!!!!!!!!!!
+            novo.email=tb_email.Text;
+            novo.palavra_passe = tb_password.Text;
+            if (novo.VerificaLogin() == false)
+            {
+                lb_erro.Text = "Login falhou. Tente novamente.";
+                return;
+            }
             //Sessão - perfil, email, nome
+            Session["id"] = novo.id;
+            Session["email"] = novo.email;
+            Session["perfil"] = novo.perfil;
+            Session["nome"] = novo.nome;
+            Session["ip"] = Request.UserHostAddress;
+            Session["useragent"] = Request.UserAgent;
             //redirecionar o utilizador de acordo com perfil
+            if (novo.perfil == 0)
+            {
+                Response.Redirect("admin.aspx");
+            }
+            if (novo.perfil == 1)
+            {
+                Response.Redirect("cliente.aspx");
+            }
         }
     }
 }

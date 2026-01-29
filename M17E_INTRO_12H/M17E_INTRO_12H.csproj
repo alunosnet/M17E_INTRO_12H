@@ -67,10 +67,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin.aspx" />
     <Content Include="App_Data\bd_intro_12h.mdf" />
     <Content Include="App_Data\bd_intro_12h_log.ldf">
       <DependentUpon>bd_intro_12h.mdf</DependentUpon>
     </Content>
+    <Content Include="cliente.aspx" />
     <Content Include="compra.aspx" />
     <Content Include="cookies.aspx" />
     <Content Include="index.aspx" />
@@ -78,11 +80,26 @@
     <Content Include="public\css\estilos.css" />
     <Content Include="resultado.aspx" />
     <Content Include="script_bd.sql" />
+    <Content Include="Utilizador\DAO\adicionar.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Classes\BaseDados.cs" />
     <Compile Include="Classes\Utilizadores.cs" />
+    <Compile Include="cliente.aspx.cs">
+      <DependentUpon>cliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cliente.aspx.designer.cs">
+      <DependentUpon>cliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="compra.aspx.cs">
       <DependentUpon>compra.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -125,6 +142,13 @@
     </Compile>
     <Compile Include="resultado.aspx.designer.cs">
       <DependentUpon>resultado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilizador\DAO\adicionar.aspx.cs">
+      <DependentUpon>adicionar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilizador\DAO\adicionar.aspx.designer.cs">
+      <DependentUpon>adicionar.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
