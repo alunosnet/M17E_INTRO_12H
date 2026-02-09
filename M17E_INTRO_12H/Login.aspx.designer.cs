@@ -42,6 +42,15 @@ namespace M17E_INTRO_12H
         protected global::System.Web.UI.WebControls.Button bt_login;
 
         /// <summary>
+        /// bt_recuperar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button bt_recuperar;
+
+        /// <summary>
         /// lb_erro control.
         /// </summary>
         /// <remarks>

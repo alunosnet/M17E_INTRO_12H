@@ -23,6 +23,14 @@ namespace M17E_INTRO_12H
                 lb_erro.Text = "Login falhou. Tente novamente.";
                 return;
             }
+            //Validar recaptcha
+            var resposta = Request.Form["g-Recaptcha-Response"];
+            var validou = ReCaptcha.Validate(resposta);
+            if (validou == false)
+            {
+                lb_erro.Text = "Tem de provar que não é um robot.";
+                return;
+            }
             //consulta à tabela de utilizadores
             Utilizadores novo = new Utilizadores();
             novo.email=tb_email.Text;
@@ -48,6 +56,15 @@ namespace M17E_INTRO_12H
             {
                 Response.Redirect("cliente.aspx");
             }
+        }
+
+        protected void bt_recuperar_Click(object sender, EventArgs e)
+        {
+            //Criar uma mensagem
+            //Verificar se existe o email
+            //TOKEN => GUID
+            //Enviar a mensagem
+            //Mostrar mensagem lb_erro
         }
     }
 }

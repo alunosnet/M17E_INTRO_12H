@@ -78,8 +78,12 @@
     <Content Include="index.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="public\css\estilos.css" />
+    <Content Include="public\js\codigo.js" />
     <Content Include="resultado.aspx" />
     <Content Include="script_bd.sql" />
+    <Content Include="Utilizador\Codigo\EditarUtilizador.aspx" />
+    <Content Include="Utilizador\Codigo\gerir.aspx" />
+    <Content Include="Utilizador\Codigo\RemoverUtilizador.aspx" />
     <Content Include="Utilizador\DAO\adicionar.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -92,6 +96,8 @@
       <DependentUpon>admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Classes\BaseDados.cs" />
+    <Compile Include="Classes\Helper.cs" />
+    <Compile Include="Classes\ReCaptcha.cs" />
     <Compile Include="Classes\Utilizadores.cs" />
     <Compile Include="cliente.aspx.cs">
       <DependentUpon>cliente.aspx</DependentUpon>
@@ -142,6 +148,27 @@
     </Compile>
     <Compile Include="resultado.aspx.designer.cs">
       <DependentUpon>resultado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilizador\Codigo\EditarUtilizador.aspx.cs">
+      <DependentUpon>EditarUtilizador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilizador\Codigo\EditarUtilizador.aspx.designer.cs">
+      <DependentUpon>EditarUtilizador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilizador\Codigo\gerir.aspx.cs">
+      <DependentUpon>gerir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilizador\Codigo\gerir.aspx.designer.cs">
+      <DependentUpon>gerir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilizador\Codigo\RemoverUtilizador.aspx.cs">
+      <DependentUpon>RemoverUtilizador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilizador\Codigo\RemoverUtilizador.aspx.designer.cs">
+      <DependentUpon>RemoverUtilizador.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utilizador\DAO\adicionar.aspx.cs">
       <DependentUpon>adicionar.aspx</DependentUpon>
