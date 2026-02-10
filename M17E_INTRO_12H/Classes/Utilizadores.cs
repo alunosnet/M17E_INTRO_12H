@@ -108,19 +108,19 @@ namespace M17E_INTRO_12H.Classes
                     WHERE id=@id";
 
             List<SqlParameter> parametros = new List<SqlParameter>()
-    {
-        new SqlParameter() {ParameterName="@nome",SqlDbType=SqlDbType.VarChar,Value=nome },
-        new SqlParameter() {ParameterName="@id",SqlDbType=SqlDbType.Int,Value=id },
-    };
+            {
+                new SqlParameter() {ParameterName="@nome",SqlDbType=SqlDbType.VarChar,Value=nome },
+                new SqlParameter() {ParameterName="@id",SqlDbType=SqlDbType.Int,Value=id },
+            };
             bd.executaSQL(sql, parametros);
         }
         public DataTable devolveDadosUtilizador(int id)
         {
             string sql = "SELECT * FROM utilizadores WHERE id=@id";
             List<SqlParameter> parametros = new List<SqlParameter>()
-    {
-        new SqlParameter() {ParameterName="@id",SqlDbType=SqlDbType.Int,Value=id }
-    };
+            {
+                new SqlParameter() {ParameterName="@id",SqlDbType=SqlDbType.Int,Value=id }
+            };
             DataTable dados = bd.devolveSQL(sql, parametros);
             if (dados.Rows.Count == 0)
             {
@@ -132,9 +132,9 @@ namespace M17E_INTRO_12H.Classes
         {
             string sql = "SELECT estado FROM utilizadores WHERE id=@id";
             List<SqlParameter> parametros = new List<SqlParameter>()
-    {
-        new SqlParameter() {ParameterName="@id",SqlDbType=SqlDbType.Int,Value=id }
-    };
+            {
+                new SqlParameter() {ParameterName="@id",SqlDbType=SqlDbType.Int,Value=id }
+            };
             DataTable dados = bd.devolveSQL(sql, parametros);
             return int.Parse(dados.Rows[0][0].ToString());
         }
@@ -148,10 +148,10 @@ namespace M17E_INTRO_12H.Classes
                 estado = 0;
             string sql = "UPDATE utilizadores SET estado = @estado WHERE id=@id";
             List<SqlParameter> parametros = new List<SqlParameter>()
-    {
-        new SqlParameter() {ParameterName="@estado",SqlDbType=SqlDbType.Bit,Value=estado },
-        new SqlParameter() {ParameterName="@id",SqlDbType=SqlDbType.Int,Value=id }
-    };
+            {
+                new SqlParameter() {ParameterName="@estado",SqlDbType=SqlDbType.Bit,Value=estado },
+                new SqlParameter() {ParameterName="@id",SqlDbType=SqlDbType.Int,Value=id }
+            };
             bd.executaSQL(sql, parametros);
         }
         public void removerUtilizador(int id)
@@ -159,40 +159,40 @@ namespace M17E_INTRO_12H.Classes
             string sql = "DELETE FROM Utilizadores WHERE id=@id";
 
             List<SqlParameter> parametros = new List<SqlParameter>()
-    {
-        new SqlParameter() {ParameterName="@id",SqlDbType=SqlDbType.Int,Value= id},
-    };
+            {
+                new SqlParameter() {ParameterName="@id",SqlDbType=SqlDbType.Int,Value= id},
+            };
             bd.executaSQL(sql, parametros);
         }
         public void recuperarPassword(string email, string guid)
         {
-            string sql = "UPDATE utilizadores set lnkRecuperar=@lnk WHERE email=@email";
+            string sql = "UPDATE utilizadores set token=@lnk WHERE email=@email";
 
             List<SqlParameter> parametros = new List<SqlParameter>()
-    {
-        new SqlParameter() {ParameterName="@email",SqlDbType=SqlDbType.VarChar,Value=email },
-        new SqlParameter() {ParameterName="@lnk",SqlDbType=SqlDbType.VarChar,Value=guid },
-    };
+            {
+                new SqlParameter() {ParameterName="@email",SqlDbType=SqlDbType.VarChar,Value=email },
+                new SqlParameter() {ParameterName="@lnk",SqlDbType=SqlDbType.VarChar,Value=guid },
+            };
             bd.executaSQL(sql, parametros);
         }
         public void atualizarPassword(string guid, string password)
         {
-            string sql = "UPDATE utilizadores set password=HASHBYTES('SHA2_512',concat(@password,sal)),estado=1,lnkRecuperar=null WHERE lnkRecuperar=@lnk";
+            string sql = "UPDATE utilizadores set palavra_passe=HASHBYTES('SHA2_512',concat(@password,sal)),token=null WHERE token=@lnk";
 
             List<SqlParameter> parametros = new List<SqlParameter>()
-    {
-        new SqlParameter() {ParameterName="@password",SqlDbType=SqlDbType.VarChar,Value=password},
-        new SqlParameter() {ParameterName="@lnk",SqlDbType=SqlDbType.VarChar,Value=guid },
-    };
+            {
+                new SqlParameter() {ParameterName="@password",SqlDbType=SqlDbType.VarChar,Value=password},
+                new SqlParameter() {ParameterName="@lnk",SqlDbType=SqlDbType.VarChar,Value=guid },
+            };
             bd.executaSQL(sql, parametros);
         }
         public DataTable devolveDadosUtilizador(string email)
         {
             string sql = "SELECT * FROM utilizadores WHERE email=@email";
             List<SqlParameter> parametros = new List<SqlParameter>()
-    {
-        new SqlParameter() {ParameterName="@email",SqlDbType=SqlDbType.VarChar,Value=email }
-    };
+            {
+                new SqlParameter() {ParameterName="@email",SqlDbType=SqlDbType.VarChar,Value=email }
+            };
             DataTable dados = bd.devolveSQL(sql, parametros);
             return dados;
         }

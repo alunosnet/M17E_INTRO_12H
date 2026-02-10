@@ -1,6 +1,8 @@
 ﻿using M17E_INTRO_12H.Classes;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -60,11 +62,38 @@ namespace M17E_INTRO_12H
 
         protected void bt_recuperar_Click(object sender, EventArgs e)
         {
-            //Criar uma mensagem
-            //Verificar se existe o email
-            //TOKEN => GUID
-            //Enviar a mensagem
-            //Mostrar mensagem lb_erro
+            try
+            {
+                if (tb_email.Text.Trim().Length == 0)
+                    throw new Exception("Indique um email");
+                string email = tb_email.Text.Trim();
+                //Verificar se existe o email
+                Classes.Utilizadores utilizador = new Classes.Utilizadores();
+                DataTable dados = utilizador.devolveDadosUtilizador(email);
+                if (dados == null || dados.Rows.Count != 1)
+                    throw new Exception("Caso o email indicado exista, foi enviada uma mensagem para recuperação da palavra passe.");
+                //TOKEN => GUID
+                Guid guid = Guid.NewGuid();
+                string token=guid.ToString();
+                utilizador.recuperarPassword(email, token);
+                //Criar uma mensagem
+                string mensagem = "Clique no link para recuperar a sua password.<br/>";
+                mensagem += "<a href='https://" + Request.Url.Authority + "/recuperarpassword.aspx?";
+                mensagem += "token=" + Server.UrlEncode(token) + "'>Clique aqui</a>";
+
+                //Enviar a mensagem
+                string meuemail = ConfigurationManager.AppSettings["email"].ToString();
+                string palavrapasse = ConfigurationManager.AppSettings["email_password"].ToString();
+                Helper.enviarMail(meuemail, palavrapasse, email,
+                    "Recuperação de palavra passe", mensagem);
+                lb_erro.Text = @"Caso o email indicado exista, 
+        foi enviada uma mensagem para recuperação da palavra passe.";
+            }
+            catch (Exception ex)
+            {
+                //Mostrar mensagem lb_erro
+                lb_erro.Text = ex.Message;
+            }
         }
     }
 }
