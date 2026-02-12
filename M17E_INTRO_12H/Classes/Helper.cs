@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -22,8 +23,11 @@ public class Helper
         mensagem.Body = texto;
         mensagem.IsBodyHtml = true;
         //servidor
-        smtp.Host = "sandbox.smtp.mailtrap.io";
-        smtp.Port = 2525;
+        //servidor
+        string servidor = ConfigurationManager.AppSettings["servidor_smtp"];
+        int porta = int.Parse(ConfigurationManager.AppSettings["porta"]);
+        smtp.Host = servidor;
+        smtp.Port = porta;
         smtp.EnableSsl = true;
         smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
         smtp.UseDefaultCredentials = false;
